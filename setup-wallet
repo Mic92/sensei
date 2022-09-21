@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -eux -o pipefail
+
+cli() {
+    bitcoin-cli -rpcuser=polaruser -rpcpassword=polarpass -chain=regtest "${@}"
+}
+
+
+args=()
+cli -rpcwait getblockchaininfo
+if [[ ! -d ~/.bitcoin/regtest/wallets ]]; then
+  cli -named createwallet wallet_name="" descriptors=false
+fi
+address=$(cli getnewaddress)
+cli generatetoaddress 101 $address
+echo "$address" > wallet-address

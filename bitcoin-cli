@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+bitcoin-cli -rpcuser=polaruser -rpcpassword=polarpass -chain=regtest "$@"
