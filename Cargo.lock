@@ -2965,7 +2965,6 @@ dependencies = [
  "bitcoin",
  "bitcoin-bech32",
  "bitcoincore-rpc",
- "bitcoind",
  "chrono",
  "dirs 4.0.0",
  "entity",
